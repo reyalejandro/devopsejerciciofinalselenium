@@ -1,0 +1,54 @@
+//def workspace
+pipeline
+{
+    agent any
+    
+    tools
+    {
+        maven 'maven'
+    }
+    
+    stages{
+    stage('Checkout Code')
+    {
+        steps{
+        checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'githubaccess', url: 'https://github.com/reyalejandro/devopsejerciciofinalselenium']]])
+        //workspace= pwd()
+        }
+    }
+    stage('Code Analysis')
+    {
+        steps{
+                withSonarQubeEnv(credentialsId: 'token_sonar', installationName: 'sonar_scanner') {
+                sh 'mvn clean test'
+                }
+        // build job: 'analisis_sonarqube', parameters: [string(name: 'workspace', value: workspace)] Esto sirve para que en un stage se ejecute un job.
+        }
+    }
+    stage('Compile Code')
+    {
+        steps{
+        sh 'mvn clean compile'
+        }
+    }
+    stage('Code Unit Test')
+    {
+        steps{
+        sh 'mvn clean test'
+        }
+    }
+    stage('Code Package')
+    {
+        steps{
+        sh 'mvn clean package'
+        //build job: 'Code Package', parameters: [string(name: 'workspace', value: workspace)]
+        }
+    }
+    stage('Code Deploy')
+    {
+        steps{
+        deploy adapters: [tomcat8(credentialsId: 'tomcat-user', path: '', url: 'http://172.18.74.140:8081')], contextPath: 'rps', war: '**/*.war'
+        }
+    }
+}
+}
