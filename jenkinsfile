@@ -53,7 +53,7 @@ pipeline
     stage('Code Continuous Test')
     {
         steps{
-        
+        echo ''
         }
     }
 }
