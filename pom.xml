@@ -1,28 +1,56 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.mava</groupId>
-  <artifactId>Prueba</artifactId>
-  <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>tomcat-webapp-test</name>
-  <url>http://maven.apache.org</url>
+  <groupId>com.bootcamp.tsoft</groupId>
+  <artifactId>bootcamp-2021-5</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>bootcamp-2021-5</name>
+
+
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <junit.version>4.13.2</junit.version>
+    <cucumber.version>6.9.0</cucumber.version>
+    <selenium.version>3.141.59</selenium.version>
+    <webdrivermanager>4.4.3</webdrivermanager>
+    <slf4j.version>1.7.32</slf4j.version>
+  </properties>
+
   <dependencies>
+    <!-- https://mvnrepository.com/artifact/junit/junit -->
+    <!-- junit -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
+    <!-- Selenium - WebDriver -->
     <dependency>
-    	<groupId>javax.servlet</groupId>
-    	<artifactId>servlet-api</artifactId>
-    	<version>2.5</version>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>${selenium.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <!-- WebDriver Manager -->
+    <dependency>
+      <groupId>io.github.bonigarcia</groupId>
+      <artifactId>webdrivermanager</artifactId>
+      <version>${webdrivermanager}</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- Simple Logger for Java -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>${slf4j.version}</version>
     </dependency>
   </dependencies>
-  <build>
-    <finalName>tomcat-webapp-test</finalName>
-  </build>
-  
 </project>
-
