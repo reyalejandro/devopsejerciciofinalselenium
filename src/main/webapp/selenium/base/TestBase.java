@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.concurrent.TimeUnit;
 
@@ -14,6 +15,7 @@ public class TestBase {
     //conteniene las configuraciones basicas de los test a ejecutar
     //atributos
     protected WebDriver driver; // navegador
+    protected ChromeOptions options;
 
     @BeforeClass
     public static void initialiseBrowser(){
@@ -22,7 +24,8 @@ public class TestBase {
 
     @Before
     public void setupBrowser(){
-        driver = new ChromeDriver();
+        options = new ChromeOptions().setHeadless(true);
+        driver = new ChromeDriver(options);
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
