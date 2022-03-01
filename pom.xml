@@ -1,11 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.bootcamp.tsoft</groupId>
-  <artifactId>bootcamp-2021-5</artifactId>
-  <packaging>jar</packaging>
-  <version>1.0-SNAPSHOT</version>
-  <name>bootcamp-2021-5</name>
+  <groupId>com.mava</groupId>
+  <artifactId>Prueba</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>tomcat-webapp-test</name>
+  <url>http://maven.apache.org</url>
 
 
   <properties>
