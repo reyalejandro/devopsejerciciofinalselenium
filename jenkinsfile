@@ -20,7 +20,7 @@ pipeline
     {
         steps{
                 withSonarQubeEnv(credentialsId: 'token_sonar', installationName: 'sonar_scanner') {
-                sh 'mvn clean test'
+                sh 'mvn sonar:sonar'
                 }
         // build job: 'analisis_sonarqube', parameters: [string(name: 'workspace', value: workspace)] Esto sirve para que en un stage se ejecute un job.
         }
