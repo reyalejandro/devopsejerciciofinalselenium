@@ -47,7 +47,7 @@ pipeline
     stage('Code Deploy')
     {
         steps{
-        deploy adapters: [tomcat8(credentialsId: 'tomcat-user', path: '', url: 'http://172.18.74.140:8081')], contextPath: 'rps', war: '**/*.war'
+        deploy adapters: [tomcat8(credentialsId: 'tomcat-user', path: '', url: 'http://172.29.221.209:8081')], contextPath: 'rps', war: '**/*.war'
         }
     }
     stage('Code Continuous Test')
